@@ -1,4 +1,5 @@
 ;;; Enable helm-gtags-mode
+(require-package 'helm-gtags)
 
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
