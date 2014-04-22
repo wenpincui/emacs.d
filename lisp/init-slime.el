@@ -19,7 +19,7 @@
 (after-load 'slime
   (setq slime-protocol-version 'ignore)
   (setq slime-net-coding-system 'utf-8-unix)
-  (slime-setup '(slime-repl slime-fuzzy))
+  (slime-setup '(slime-fancy))
   (setq slime-complete-symbol*-fancy t)
   (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
   (add-hook 'slime-mode-hook 'sanityinc/slime-setup))
@@ -37,7 +37,8 @@
 (after-load 'slime-repl
   ;; Stop SLIME's REPL from grabbing DEL, which is annoying when backspacing over a '('
   (after-load 'paredit
-    (define-key slime-repl-mode-map (read-kbd-macro paredit-backward-delete-key) nil))
+    (define-key slime-repl-mode-map (read-kbd-macro paredit-backward-delete-key) nil)
+    (define-key slime-repl-mode-map (kbd "M-s") 'paredit-splice-sexp))
 
   ;; Bind TAB to `indent-for-tab-command', as in regular Slime buffers.
   (define-key slime-repl-mode-map (kbd "TAB") 'indent-for-tab-command)
