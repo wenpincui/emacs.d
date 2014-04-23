@@ -79,6 +79,7 @@
 (require 'init-slime)
 (require 'init-clojure)
 (require 'init-common-lisp)
+(require 'init-w3m)
 (require 'init-helm-gtags)
 
 (when *spell-check-support-enabled*
