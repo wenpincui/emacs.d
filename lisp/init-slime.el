@@ -38,10 +38,16 @@
   ;; Stop SLIME's REPL from grabbing DEL, which is annoying when backspacing over a '('
   (after-load 'paredit
     (define-key slime-repl-mode-map (read-kbd-macro paredit-backward-delete-key) nil)
-    (define-key slime-repl-mode-map (kbd "M-s") 'paredit-splice-sexp)
-    (let ((local-hyper-spec "~/.quicklisp/clhs-use-local.el"))
+    (define-key slime-repl-mode-map (kbd "M-s") 'paredit-splice-sexp))
+
+  (let ((local-hyper-spec "~/.quicklisp/clhs-use-local.el"))
       (and (file-exists-p local-hyper-spec)
-           (load local-hyper-spec))))
+           (load local-hyper-spec)))
+
+  (define-key slime-repl-mode-map (kbd "C-c l")
+    'slime-documentation)
+  (define-key slime-mode-map (kbd "C-c l")
+    'slime-documentation)
 
   ;; Bind TAB to `indent-for-tab-command', as in regular Slime buffers.
   (define-key slime-repl-mode-map (kbd "TAB") 'indent-for-tab-command)
@@ -50,6 +56,5 @@
 
 (after-load 'auto-complete
   (add-to-list 'ac-modes 'slime-repl-mode))
-
 
 (provide 'init-slime)
