@@ -10,6 +10,13 @@
 (require 'switch-window)
 (setq switch-window-shortcut-style 'alphabet)
 
+;;----------------------------------------------------------------------------
+;; Enable window swith with M-num
+;;----------------------------------------------------------------------------
+(require-package 'window-number)
+(require 'window-number)
+(window-number-mode)
+(window-number-meta-mode)
 
 ;;----------------------------------------------------------------------------
 ;; When splitting window, show (other-buffer) in the new window
