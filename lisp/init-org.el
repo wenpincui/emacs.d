@@ -291,6 +291,10 @@ typical word processor."
 (after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro))
 
+(url-copy-file "http://sourceforge.net/projects/plantuml/files/plantuml.jar/download" "./plantuml.jar")
+(setq org-plantuml-jar-path
+      (expand-file-name "./plantuml.jar"))
+
 
 ;; ;; Show iCal calendars in the org agenda
 ;; (when (and *is-a-mac* (require 'org-mac-iCal nil t))
@@ -323,6 +327,7 @@ typical word processor."
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((R . t)
+     (plantuml . t)
      (ditaa . t)
      (dot . t)
      (emacs-lisp . t)
